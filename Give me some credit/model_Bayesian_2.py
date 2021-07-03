@@ -128,23 +128,34 @@ def main():
 #        print("%2d) %-*s %f" % (f + 1, 30, feat_labels[f], importances[indices[f]]))
     #b.使用具有CrossValidation的网格搜索执行参数调整
     param_grid = {"max_features": [2, 3, 4], "min_samples_leaf":[50]}
-    grid_search = GridSearchCV(rf, cv=10, scoring='roc_auc', param_grid=param_grid, iid=False)
+    # grid_search = GridSearchCV(rf, cv=10, scoring='roc_auc', param_grid=param_grid, iid=False,n_jobs=5)
+
+    from sklearn.model_selection import RandomizedSearchCV
+    # forest_rand_search = RandomizedSearchCV(rf, param_grid,
+    #                                         scoring="accuracy", verbose=True, cv=10,
+    #                                         n_jobs=5, random_state=42)
+    from skopt import BayesSearchCV
+    from skopt.space import Real, Categorical, Integer
+
+    forest_bayes_search = BayesSearchCV(rf, param_grid, n_iter=3,
+                                        scoring="accuracy", n_jobs=7, cv=10)
+
     #c.输出最佳模型并对测试数据进行预测
     #使用最优参数和training_new数据构建模型
-    grid_search.fit(x_train, y_train)
-    print("the best parameter:", grid_search.best_params_)
-    print("the best score:", grid_search.best_score_)
+    forest_bayes_search.fit(x_train, y_train)
+    print("the best parameter:", forest_bayes_search.best_params_)
+    print("the best score:", forest_bayes_search.best_score_)
 
     #使用训练的模型来预测train_new数据
-    predicted_probs_train = grid_search.predict_proba(x_train)
+    predicted_probs_train = forest_bayes_search.predict_proba(x_train)
     predicted_probs_train = [x[1] for  x in predicted_probs_train]
     computeAUC(y_train, predicted_probs_train)
     #使用训练的模型来预测test_new数据（validataion data）
-    predicted_probs_test_new = grid_search.predict_proba(x_test_new)
+    predicted_probs_test_new = forest_bayes_search.predict_proba(x_test_new)
     predicted_probs_test_new = [x[1] for x in predicted_probs_test_new]
     computeAUC(y_test_new, predicted_probs_test_new)
     #使用该模型预测test data
-    predicted_probs_test = grid_search.predict_proba(x_test)
+    predicted_probs_test = forest_bayes_search.predict_proba(x_test)
     predicted_probs_test = ["%.9f" % x[1] for x in predicted_probs_test]
     submission = pd.DataFrame({'Id':test_id, 'Probability':predicted_probs_test})
     submission.to_csv("rf_benchmark.csv", index=False)

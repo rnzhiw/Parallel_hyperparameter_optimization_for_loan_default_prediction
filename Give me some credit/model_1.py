@@ -128,7 +128,7 @@ def main():
 #        print("%2d) %-*s %f" % (f + 1, 30, feat_labels[f], importances[indices[f]]))
     #b.使用具有CrossValidation的网格搜索执行参数调整
     param_grid = {"max_features": [2, 3, 4], "min_samples_leaf":[50]}
-    grid_search = GridSearchCV(rf, cv=10, scoring='roc_auc', param_grid=param_grid, iid=False)
+    grid_search = GridSearchCV(rf, cv=10, scoring='roc_auc', param_grid=param_grid, iid=False,n_jobs=6)
     #c.输出最佳模型并对测试数据进行预测
     #使用最优参数和training_new数据构建模型
     grid_search.fit(x_train, y_train)

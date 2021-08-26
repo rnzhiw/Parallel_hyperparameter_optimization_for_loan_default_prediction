@@ -35,7 +35,7 @@ git clone https://github.com/rnzhiw/Parallel_hyperparameter_optimization_for_loa
 
 * Result1: Use GridSearch for parallel operations
 
-  ![Image discription](img/grid.png)
+  <img src="img/grid.png" alt="Image discription" style="zoom:67%;" />
 
 * Result2: Use RandomSearch for parallel operations
 

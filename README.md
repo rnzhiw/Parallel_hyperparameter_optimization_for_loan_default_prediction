@@ -31,6 +31,20 @@ git clone https://github.com/rnzhiw/Parallel_hyperparameter_optimization_for_loa
 
 * All images are in the givemesomecredit/ Data folder
 
+## Results
+
+* Result1: Use GridSearch for parallel operations
+
+  ![Image discription](img/grid.png)
+
+* Result2: Use RandomSearch for parallel operations
+
+  ![Image discription](img/random.png)
+
+* Result3: Use Bayesian Optimiza for parallel operations
+
+  ![Image discription](img/Bayesia.png)
+
 
 
 ## License

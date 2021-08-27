@@ -5,7 +5,7 @@
       <paths name="server">
         <serverdata>
           <mappings>
-            <mapping deploy="/give-me-some-credit" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/PSO" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

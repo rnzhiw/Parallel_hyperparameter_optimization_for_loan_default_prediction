@@ -1,5 +1,4 @@
 # Parallel hyper-parameter optimization for loan default prediction
-
 Official Python implementation for our Parallel hyper-parameter optimization for loan default prediction framework.
 
 Hyper-parameter selection can significantly impact
@@ -36,15 +35,15 @@ git clone https://github.com/rnzhiw/Parallel_hyperparameter_optimization_for_loa
 
 * Result1: Use GridSearch for parallel operations
 
-  <img src="D:\PycharmProjects\pycharmsoftware\PSO\give-me-some-credit\img\grid.png" width = "350" alt="图片名称" align=center />
+   <img src="img/grid.png" width = "350" alt="图片名称" align=center />
 
 * Result2: Use RandomSearch for parallel operations
 
-  <img src="D:\PycharmProjects\pycharmsoftware\PSO\give-me-some-credit\img\random.png" width = "350" alt="图片名称" align=center />
+   <img src="img/random.png" width = "350" alt="图片名称" align=center />
 
 * Result3: Use Bayesian Optimiza for parallel operations
 
-  <img src="D:\PycharmProjects\pycharmsoftware\PSO\give-me-some-credit\img\Bayesia.png" width = "350" alt="图片名称" align=left />  
+  <img src="img/Bayesia.png" width = "350" alt="图片名称"/>  
 
 
 

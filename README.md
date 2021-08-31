@@ -23,7 +23,7 @@ Then, clone the repository locally:
 git clone https://github.com/rnzhiw/Parallel_hyperparameter_optimization_for_loan_default_prediction.git
 ```
 
-
+Then，The code corresponding to the paper is in give-me-some-credit folder
 
 ## Test
 

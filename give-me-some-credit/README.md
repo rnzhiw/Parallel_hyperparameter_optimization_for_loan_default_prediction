@@ -43,7 +43,7 @@ git clone https://github.com/rnzhiw/Parallel_hyperparameter_optimization_for_loa
 
 * Result3: Use Bayesian Optimiza for parallel operations
 
-  <img src="img/Bayesia.png" width = "350" alt="图片名称" align=left />  
+  <img src="img/Bayesia.png" width = "350" alt="图片名称"/>  
 
 
 

@@ -1,13 +1,60 @@
-    粒子群优化算法(PSO：Particle swarm optimization) 是一种进化计算技术（evolutionary computation）。
-    源于对鸟群捕食的行为研究。粒子群优化算法的基本思想：是通过群体中个体之间的协作和信息共享来寻找最优解．
+# Parallel hyper-parameter optimization for loan default prediction
 
-    鸟被抽象为没有质量和体积的微粒(点)，并延伸到N维空间，粒子i在N维空间的位置表示为矢量Xi＝(x1，x2，…，xN)，飞行速度表示为矢量Vi＝(v1，v2，…，vN)。每个粒子都有一个由目标函数决定的适应值(fitness value)，并且知道自己到目前为止发现的最好位置(pbest)和现在的位置Xi。这个可以看作是粒子自己的飞行经验。除此之外，每个粒子还知道到目前为止整个群体中所有粒子发现的最好位置(gbest)(gbest是pbest中的最好值)，这个可以看作是粒子同伴的经验。粒子就是通过自己的经验和同伴中最好的经验来决定下一步的运动。 
-    标准PSO算法的流程：
-        1）初始化一群微粒(群体规模为N)，包括随机位置和速度；
-        2）评价每个微粒的适应度；
-        3）对每个微粒，将其适应值与其经过的最好位置pbest作比较，如果较好，则将其作为当前的最好位置pbest；
-        4）对每个微粒，将其适应值与其经过的最好位置gbest作比较，如果较好，则将其作为当前的最好位置gbest；
-        5）根据公式(2)、(3)调整微粒速度和位置；
-        6）未达到结束条件则转第2）步。
+Official Python implementation for our Parallel hyper-parameter optimization for loan default prediction framework.
 
-    PSO的优势：在于简单容易实现并且没有许多参数的调节。目前已被广泛应用于函数优化、神经网络训练、模糊系统控制以及其他遗传算法的应用领域
+Hyper-parameter selection can significantly impact
+the performance of the machine learning model. Due to the large scale of data, parallel hyper-parameter selection is necessary for practical applications. Compared with the widely-used grid search and random search, Bayesian optimization is a global wise method proposed in recent years with fewer iterations. We consider these three methods for hyper-parameter selection in their parallel implementations. In many real-world applications such as Internet financial lending, delayed loan review often hurts business efficiency, thus faster processing is required. 
+
+
+
+## Environment
+
+* python3.7, pillow, tqdm, torchfile, pytorch1.1+ (for inference)
+
+  ```
+  pip install pillow
+  pip install tqdm
+  pip install torchfile
+  conda install pytorch==1.1.0 torchvision==0.3.0 -c pytorch
+  ```
+
+Then, clone the repository locally:
+
+```
+git clone https://github.com/rnzhiw/Parallel_hyperparameter_optimization_for_loan_default_prediction.git
+```
+
+
+
+## Test
+
+**Step 1: Prepare images**
+
+* All images are in the givemesomecredit/ Data folder
+
+## Results
+
+* Result1: Use GridSearch for parallel operations
+
+  <img src="D:\PycharmProjects\pycharmsoftware\PSO\give-me-some-credit\img\grid.png" width = "350" alt="图片名称" align=center />
+
+* Result2: Use RandomSearch for parallel operations
+
+  <img src="D:\PycharmProjects\pycharmsoftware\PSO\give-me-some-credit\img\random.png" width = "350" alt="图片名称" align=center />
+
+* Result3: Use Bayesian Optimiza for parallel operations
+
+  <img src="D:\PycharmProjects\pycharmsoftware\PSO\give-me-some-credit\img\Bayesia.png" width = "350" alt="图片名称" align=left />  
+
+
+
+
+
+
+
+
+
+
+
+
+
